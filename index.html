@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Koffi Sadrac | Cybersecurity & Network Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08111f;
+    color: #eaf2ff;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,17,31,.96);
+    border-bottom: 1px solid #1c3454;
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #57b8ff;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+}
+
+nav a:hover {
+    color: #57b8ff;
+}
+
+.languages {
+    display: flex;
+    gap: 7px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #57b8ff;
+    color: #57b8ff;
+    padding: 6px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    background: #1976d2;
+    color: white;
+}
+
+.hero {
+    min-height: 88vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+      radial-gradient(circle at top right,#123b65 0%,transparent 38%),
+      #08111f;
+}
+
+.tag {
+    color: #57b8ff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 8px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #a7bad4;
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 720px;
+    color: #c0cee0;
+    margin-bottom: 32px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: #1976d2;
+    color: white;
+}
+
+.btn-secondary {
+    border: 1px solid #57b8ff;
+    color: #57b8ff;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 85px 8%;
+}
+
+section:nth-of-type(even) {
+    background: #0c1727;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: #57b8ff;
+}
+
+.about {
+    max-width: 850px;
+    color: #c0cee0;
+    font-size: 1.05rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111f32;
+    border: 1px solid #1d3554;
+    border-radius: 12px;
+    padding: 24px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #57b8ff;
+}
+
+.card h3 {
+    color: #57b8ff;
+    margin-bottom: 12px;
+}
+
+.card ul {
+    padding-left: 20px;
+    color: #c0cee0;
+}
+
+.card p {
+    color: #c0cee0;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    color: #57b8ff;
+    font-weight: bold;
+}
+
+.education-item {
+    background: #111f32;
+    border-left: 4px solid #57b8ff;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    max-width: 900px;
+}
+
+.education-item p {
+    color: #c0cee0;
+}
+
+.contact-box {
+    max-width: 700px;
+    background: #111f32;
+    border: 1px solid #1d3554;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.contact-box p {
+    color: #c0cee0;
+    margin-bottom: 22px;
+}
+
+footer {
+    text-align: center;
+    padding: 28px;
+    border-top: 1px solid #1d3554;
+    color: #8196b0;
+}
+
+@media(max-width:850px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero h2 {
+        font-size: 1.4rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">KS.</div>
+
+<div class="nav-right">
+
+<ul>
+<li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+<li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+<li><a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+<li><a href="#education" data-fr="Formation" data-en="Education">Formation</a></li>
+<li><a href="#projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="languages">
+<button class="lang-btn active" id="frBtn" onclick="changeLanguage('fr')">FR</button>
+<button class="lang-btn" id="enBtn" onclick="changeLanguage('en')">EN</button>
+</div>
+
+</div>
+</nav>
+
+
+<header class="hero" id="home">
+
+<p class="tag"
+data-fr="CYBERSÉCURITÉ • RÉSEAUX • SYSTÈMES"
+data-en="CYBERSECURITY • NETWORKING • SYSTEMS">
+CYBERSÉCURITÉ • RÉSEAUX • SYSTÈMES
+</p>
+
+<h1>Koffi Sadrac</h1>
+
+<h2
+data-fr="Étudiant en Sécurité Informatique et Réseaux"
+data-en="Cybersecurity & Networking Student">
+Étudiant en Sécurité Informatique et Réseaux
+</h2>
+
+<p class="intro"
+data-fr="Je développe mes compétences en cybersécurité, administration systèmes, réseaux informatiques et virtualisation à travers des projets et laboratoires pratiques."
+data-en="I am developing practical skills in cybersecurity, system administration, computer networking and virtualization through technical projects and hands-on labs.">
+Je développe mes compétences en cybersécurité, administration systèmes,
+réseaux informatiques et virtualisation à travers des projets et laboratoires pratiques.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary"
+href="#projects"
+data-fr="Voir mes projets"
+data-en="View my projects">
+Voir mes projets
+</a>
+
+<a class="btn btn-secondary"
+href="https://github.com/koffisadrac"
+target="_blank"
+data-fr="Mon GitHub"
+data-en="My GitHub">
+Mon GitHub
+</a>
+
+</div>
+
+</header>
+
+
+<section id="about">
+
+<h2 class="section-title">
+<span>01.</span>
+<span data-fr="À propos" data-en="About">À propos</span>
+</h2>
+
+<p class="about"
+data-fr="Je suis étudiant en Sécurité Informatique et Réseaux à Montréal. Je m'intéresse particulièrement à la sécurité des infrastructures, l'administration Windows et Linux, les réseaux informatiques, les pare-feu et la virtualisation. Mon objectif est de développer une solide expérience pratique et de documenter mes projets techniques afin de démontrer mes compétences dans un environnement professionnel."
+data-en="I am a Cybersecurity and Networking student in Montreal. I am particularly interested in infrastructure security, Windows and Linux administration, computer networking, firewalls and virtualization. My goal is to build strong hands-on experience and document my technical projects to demonstrate my skills in a professional environment.">
+Je suis étudiant en Sécurité Informatique et Réseaux à Montréal.
+Je m'intéresse particulièrement à la sécurité des infrastructures,
+l'administration Windows et Linux, les réseaux informatiques,
+les pare-feu et la virtualisation. Mon objectif est de développer
+une solide expérience pratique et de documenter mes projets techniques.
+</p>
+
+</section>
+
+
+<section id="skills">
+
+<h2 class="section-title">
+<span>02.</span>
+<span data-fr="Compétences techniques" data-en="Technical Skills">
+Compétences techniques
+</span>
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3 data-fr="Réseaux" data-en="Networking">Réseaux</h3>
+<ul>
+<li>Cisco</li>
+<li>VLAN & Trunking</li>
+<li data-fr="Routage" data-en="Routing">Routage</li>
+<li>DHCP / DNS</li>
+<li>NAT / PAT</li>
+<li>ACL</li>
+<li>TCP/IP</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</h3>
+<ul>
+<li>OPNsense</li>
+<li>pfSense</li>
+<li>Nmap</li>
+<li>UFW / iptables</li>
+<li data-fr="Pare-feu Windows" data-en="Windows Firewall">Pare-feu Windows</li>
+<li data-fr="Sécurité réseau" data-en="Network Security">Sécurité réseau</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 data-fr="Systèmes" data-en="Systems">Systèmes</h3>
+<ul>
+<li>Windows 11</li>
+<li>Windows Server</li>
+<li>Active Directory</li>
+<li>Linux / Ubuntu</li>
+<li>Samba AD</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 data-fr="Virtualisation" data-en="☁️ Virtualization">☁️ Virtualisation</h3>
+<ul>
+<li>VMware Workstation</li>
+<li>VMware ESXi</li>
+<li>KVM</li>
+<li>Hyper-V</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="education">
+
+<h2 class="section-title">
+<span>03.</span>
+<span data-fr="Formation" data-en="Education">Formation</span>
+</h2>
+
+<div class="education-item">
+
+<h3
+data-fr="Sécurité Informatique et Réseaux"
+data-en="Cybersecurity and Networking">
+Sécurité Informatique et Réseaux
+</h3>
+
+<p
+data-fr="Formation technique en cybersécurité, réseaux, systèmes et infrastructures informatiques."
+data-en="Technical training in cybersecurity, networking, systems and IT infrastructure.">
+Formation technique en cybersécurité, réseaux, systèmes et infrastructures informatiques.
+</p>
+
+</div>
+
+
+<div class="education-item">
+
+<h3
+data-fr="4ᵉ session — En cours"
+data-en="4th Semester — In Progress">
+4ᵉ session — En cours
+</h3>
+
+<p
+data-fr="Infrastructures virtuelles • Gestion des risques et incidents • Environnement de production II • Soutien aux clients • Milieu de travail en informatique, recherche et communication."
+data-en="Virtual Infrastructure • Risk and Incident Management • Production Environment II • Client Support • IT Workplace, Research and Communication.">
+Infrastructures virtuelles • Gestion des risques et incidents •
+Environnement de production II • Soutien aux clients •
+Milieu de travail en informatique, recherche et communication.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2 class="section-title">
+<span>04.</span>
+<span data-fr="Projets techniques" data-en="Technical Projects">
+Projets techniques
+</span>
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>OPNsense Firewall & VLAN Lab</h3>
+
+<p
+data-fr="Laboratoire de sécurité réseau avec segmentation VLAN, règles de pare-feu, NAT et tests de sécurité."
+data-en="Network security lab featuring VLAN segmentation, firewall rules, NAT and security testing.">
+Laboratoire de sécurité réseau avec segmentation VLAN,
+règles de pare-feu, NAT et tests de sécurité.
+</p>
+
+<a class="project-link"
+href="https://github.com/koffisadrac/opnsense-firewall-vlan-lab"
+target="_blank"
+data-fr="Voir le projet →"
+data-en="View project →">
+Voir le projet →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>Active Directory Lab</h3>
+
+<p
+data-fr="Déploiement d'un environnement Windows Server avec Active Directory, DNS, DHCP, utilisateurs, groupes et stratégies de sécurité."
+data-en="Deployment of a Windows Server environment with Active Directory, DNS, DHCP, users, groups and security policies.">
+Déploiement d'un environnement Windows Server avec Active Directory,
+DNS, DHCP, utilisateurs, groupes et stratégies de sécurité.
+</p>
+
+<p data-fr="Documentation à venir"
+data-en="Documentation coming soon">
+Documentation à venir
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>☁️ Virtualization Lab</h3>
+
+<p
+data-fr="Laboratoires pratiques sur les infrastructures virtuelles avec VMware, ESXi et KVM."
+data-en="Hands-on virtual infrastructure labs using VMware, ESXi and KVM.">
+Laboratoires pratiques sur les infrastructures virtuelles avec VMware,
+ESXi et KVM.
+</p>
+
+<p data-fr="Projet en développement"
+data-en="Project in development">
+Projet en développement
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2 class="section-title">
+<span>05.</span> Contact
+</h2>
+
+<div class="contact-box">
+
+<p
+data-fr="Je suis intéressé par les opportunités de stage et les postes juniors en cybersécurité, réseaux, administration systèmes et support TI."
+data-en="I am interested in internship opportunities and junior positions in cybersecurity, networking, system administration and IT support.">
+Je suis intéressé par les opportunités de stage et les postes juniors
+en cybersécurité, réseaux, administration systèmes et support TI.
+</p>
+
+<a class="btn btn-primary"
+href="https://github.com/koffisadrac"
+target="_blank"
+data-fr="Voir mon GitHub"
+data-en="View my GitHub">
+Voir mon GitHub
+</a>
+
+</div>
+
+</section>
+
+
+<footer
+data-fr="© 2026 Koffi Sadrac — Portfolio Cybersécurité & Réseaux"
+data-en="© 2026 Koffi Sadrac — Cybersecurity & Networking Portfolio">
+© 2026 Koffi Sadrac — Portfolio Cybersécurité & Réseaux
+</footer>
+
+
+<script>
+
+function changeLanguage(language) {
+
+    document.querySelectorAll("[data-fr]").forEach(element => {
+        element.textContent = element.getAttribute("data-" + language);
+    });
+
+    document.documentElement.lang = language;
+
+    document.getElementById("frBtn").classList.toggle(
+        "active",
+        language === "fr"
+    );
+
+    document.getElementById("enBtn").classList.toggle(
+        "active",
+        language === "en"
+    );
+
+    localStorage.setItem("portfolioLanguage", language);
+}
+
+const savedLanguage =
+    localStorage.getItem("portfolioLanguage") || "fr";
+
+changeLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>
