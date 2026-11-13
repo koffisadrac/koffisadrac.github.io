@@ -3,270 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Koffi Sadrac Kanga | Cybersecurity & Network Portfolio</title>
+<title>Koffi Sadrac Kanga | Portfolio Cybersécurité & Réseaux</title>
+<meta name="description" content="Portfolio de Koffi Sadrac Kanga, étudiant finissant en Sécurité informatique et réseaux à Montréal : téléphonie IP, pare-feu, Active Directory, virtualisation.">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --bg: #08111f;
+    --bg-alt: #0c1727;
+    --card: #111f32;
+    --line: #1d3554;
+    --text: #eaf2ff;
+    --muted: #b3c3d8;
+    --soft: #8196b0;
+    --accent: #57b8ff;
+    --accent-strong: #1976d2;
+    --ok: #4ade80;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #08111f;
-    color: #eaf2ff;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
 }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
+/* ---------- Navigation ---------- */
 nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position: sticky; top: 0; z-index: 1000;
     background: rgba(8,17,31,.96);
-    border-bottom: 1px solid #1c3454;
-    padding: 16px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 1px solid var(--line);
+    padding: 14px 7%;
+    display: flex; justify-content: space-between; align-items: center;
 }
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #57b8ff;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-nav ul {
-    display: flex;
-    gap: 22px;
-    list-style: none;
-}
-
-nav a:hover {
-    color: #57b8ff;
-}
-
-.languages {
-    display: flex;
-    gap: 7px;
-}
-
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+nav ul { display: flex; gap: 20px; list-style: none; }
+nav ul a { color: var(--muted); font-size: .95rem; }
+nav ul a:hover { color: var(--accent); }
+.languages { display: flex; gap: 6px; }
 .lang-btn {
-    background: transparent;
-    border: 1px solid #57b8ff;
-    color: #57b8ff;
-    padding: 6px 9px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+    background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    padding: 5px 9px; border-radius: 6px; cursor: pointer; font-weight: 700;
 }
+.lang-btn.active, .lang-btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
 
-.lang-btn.active,
-.lang-btn:hover {
-    background: #1976d2;
-    color: white;
-}
-
+/* ---------- Hero ---------- */
 .hero {
-    min-height: 88vh;
-    padding: 100px 8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background:
-      radial-gradient(circle at top right,#123b65 0%,transparent 38%),
-      #08111f;
+    min-height: 86vh; padding: 90px 8% 70px;
+    display: flex; flex-direction: column; justify-content: center;
+    background: radial-gradient(circle at top right, #123b65 0%, transparent 40%), var(--bg);
 }
-
-.tag {
-    color: #57b8ff;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+.tag { color: var(--accent); font-weight: 700; letter-spacing: 1.5px; font-size: .9rem; margin-bottom: 14px; }
+.hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 10px; }
+.hero h2 { font-size: 1.7rem; color: #a7bad4; font-weight: 600; margin-bottom: 22px; }
+.intro { max-width: 760px; color: var(--muted); font-size: 1.08rem; margin-bottom: 28px; }
+.status {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line); background: var(--card);
+    border-radius: 999px; padding: 6px 14px; font-size: .9rem; color: var(--muted);
+    margin-bottom: 28px; width: fit-content;
 }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 700; transition: .25s; }
+.btn-primary { background: var(--accent-strong); color: #fff; }
+.btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
+.btn:hover { transform: translateY(-3px); }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 8px;
-}
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-top: 48px; max-width: 900px; }
+.stat { border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 16px; }
+.stat b { display: block; font-size: 1.6rem; color: var(--accent); line-height: 1.2; }
+.stat span { font-size: .85rem; color: var(--soft); }
 
-.hero h2 {
-    font-size: 2rem;
-    color: #a7bad4;
-    margin-bottom: 25px;
-}
+/* ---------- Sections ---------- */
+section { padding: 80px 8%; }
+section:nth-of-type(even) { background: var(--bg-alt); }
+.section-title { font-size: 2rem; margin-bottom: 10px; }
+.section-title span:first-child { color: var(--accent); margin-right: 6px; }
+.section-lead { color: var(--soft); max-width: 760px; margin-bottom: 34px; }
 
-.intro {
-    max-width: 720px;
-    color: #c0cee0;
-    margin-bottom: 32px;
-}
+.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 34px; align-items: start; }
+.about-text p { color: var(--muted); margin-bottom: 14px; font-size: 1.03rem; }
+.qualities { list-style: none; display: grid; gap: 12px; }
+.qualities li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.qualities b { color: var(--accent); display: block; }
+.qualities span { color: var(--muted); font-size: .93rem; }
 
-.buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; transition: .25s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.1rem; }
+.card ul { padding-left: 18px; color: var(--muted); }
+.card li { margin: 3px 0; }
 
-.btn {
-    display: inline-block;
-    padding: 13px 22px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: .3s;
-}
+/* ---------- Projets ---------- */
+.project { display: grid; grid-template-columns: 1fr 1.15fr; gap: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 26px; }
+.project:hover { border-color: var(--accent); }
+.project-media { background: #f4f6f9; display: flex; align-items: center; justify-content: center; padding: 14px; }
+.project-body { padding: 26px 28px; }
+.project-label { font-size: .8rem; letter-spacing: 1px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+.project h3 { font-size: 1.45rem; margin: 6px 0 10px; }
+.project p { color: var(--muted); margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+.chip { font-size: .8rem; background: #0b2440; color: #9fd4ff; border: 1px solid #1b4a78; border-radius: 999px; padding: 2px 10px; }
+.results { list-style: none; margin-bottom: 18px; }
+.results li { color: var(--muted); padding-left: 22px; position: relative; margin: 4px 0; font-size: .95rem; }
+.results li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+.links { display: flex; gap: 18px; flex-wrap: wrap; }
+.links a { color: var(--accent); font-weight: 700; }
+.links a:hover { text-decoration: underline; }
 
-.btn-primary {
-    background: #1976d2;
-    color: white;
-}
+.labs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 10px; }
+.lab { border: 1px solid var(--line); border-radius: 10px; padding: 18px; background: var(--bg); }
+.lab h4 { color: var(--text); margin-bottom: 6px; }
+.lab p { color: var(--soft); font-size: .93rem; }
+.subhead { font-size: 1.15rem; margin: 40px 0 12px; color: var(--text); }
 
-.btn-secondary {
-    border: 1px solid #57b8ff;
-    color: #57b8ff;
-}
+/* ---------- Formation ---------- */
+.timeline { max-width: 900px; }
+.edu { background: var(--card); border-left: 4px solid var(--accent); padding: 20px 22px; margin-bottom: 16px; border-radius: 8px; }
+.edu .when { color: var(--accent); font-weight: 700; font-size: .9rem; }
+.courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+.course-group h4 { color: var(--accent); font-size: .92rem; margin-bottom: 4px; }
+.course-group ul { list-style: none; }
+.course-group li { color: var(--muted); font-size: .92rem; padding: 2px 0; }
+.course-group.now h4 { color: var(--ok); }
+.edu h3 { margin: 2px 0 4px; }
+.edu .where { color: var(--soft); font-size: .95rem; margin-bottom: 6px; }
+.edu p { color: var(--muted); }
 
-.btn:hover {
-    transform: translateY(-3px);
-}
+/* ---------- Contact ---------- */
+.contact-box { max-width: 760px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 30px; }
+.contact-box p { color: var(--muted); margin-bottom: 22px; }
 
-section {
-    padding: 85px 8%;
-}
+footer { text-align: center; padding: 26px; border-top: 1px solid var(--line); color: var(--soft); font-size: .9rem; }
 
-section:nth-of-type(even) {
-    background: #0c1727;
-}
-
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 35px;
-}
-
-.section-title span {
-    color: #57b8ff;
-}
-
-.about {
-    max-width: 850px;
-    color: #c0cee0;
-    font-size: 1.05rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #111f32;
-    border: 1px solid #1d3554;
-    border-radius: 12px;
-    padding: 24px;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #57b8ff;
-}
-
-.card h3 {
-    color: #57b8ff;
-    margin-bottom: 12px;
-}
-
-.card ul {
-    padding-left: 20px;
-    color: #c0cee0;
-}
-
-.card p {
-    color: #c0cee0;
-    margin-bottom: 15px;
-}
-
-.project-link {
-    color: #57b8ff;
-    font-weight: bold;
-}
-
-.education-item {
-    background: #111f32;
-    border-left: 4px solid #57b8ff;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    max-width: 900px;
-}
-
-.education-item p {
-    color: #c0cee0;
-}
-
-.contact-box {
-    max-width: 700px;
-    background: #111f32;
-    border: 1px solid #1d3554;
-    border-radius: 12px;
-    padding: 30px;
-}
-
-.contact-box p {
-    color: #c0cee0;
-    margin-bottom: 22px;
-}
-
-footer {
-    text-align: center;
-    padding: 28px;
-    border-top: 1px solid #1d3554;
-    color: #8196b0;
-}
-
-@media(max-width:850px) {
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-right {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero h2 {
-        font-size: 1.4rem;
-    }
+@media (max-width: 900px) {
+    nav { flex-direction: column; gap: 12px; }
+    .nav-right { flex-direction: column; gap: 10px; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .hero h1 { font-size: 2.6rem; }
+    .hero h2 { font-size: 1.3rem; }
+    .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .about-grid, .project { grid-template-columns: 1fr; }
+    section { padding: 64px 6%; }
 }
 </style>
 </head>
@@ -274,69 +158,46 @@ footer {
 <body>
 
 <nav>
-
 <div class="logo">KS.</div>
-
 <div class="nav-right">
-
 <ul>
 <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
 <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
 <li><a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
-<li><a href="#education" data-fr="Formation" data-en="Education">Formation</a></li>
 <li><a href="#projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+<li><a href="#education" data-fr="Formation" data-en="Education">Formation</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
 <div class="languages">
 <button class="lang-btn active" id="frBtn" onclick="changeLanguage('fr')">FR</button>
 <button class="lang-btn" id="enBtn" onclick="changeLanguage('en')">EN</button>
 </div>
-
 </div>
 </nav>
 
 
 <header class="hero" id="home">
 
-<p class="tag"
-data-fr="CYBERSÉCURITÉ • RÉSEAUX • SYSTÈMES"
-data-en="CYBERSECURITY • NETWORKING • SYSTEMS">
-CYBERSÉCURITÉ • RÉSEAUX • SYSTÈMES
-</p>
+<p class="tag" data-fr="CYBERSÉCURITÉ • RÉSEAUX • TÉLÉPHONIE IP • SYSTÈMES" data-en="CYBERSECURITY • NETWORKING • IP TELEPHONY • SYSTEMS">CYBERSÉCURITÉ • RÉSEAUX • TÉLÉPHONIE IP • SYSTÈMES</p>
 
 <h1>Koffi Sadrac Kanga</h1>
 
-<h2
-data-fr="Étudiant finissant en Sécurité Informatique et Réseaux"
-data-en="Graduating Cybersecurity & Networking Student">
-Étudiant finissant en Sécurité Informatique et Réseaux
-</h2>
+<h2 data-fr="Étudiant finissant en Sécurité informatique et réseaux" data-en="Graduating Cybersecurity & Networking Student">Étudiant finissant en Sécurité informatique et réseaux</h2>
 
-<p class="intro"
-data-fr="Je développe mes compétences en cybersécurité, administration systèmes, réseaux informatiques et virtualisation à travers des projets et laboratoires pratiques."
-data-en="I am developing practical skills in cybersecurity, system administration, computer networking and virtualization through technical projects and hands-on labs.">
-Je développe mes compétences en cybersécurité, administration systèmes,
-réseaux informatiques et virtualisation à travers des projets et laboratoires pratiques.
-</p>
+<p class="intro" data-fr="Je conçois, sécurise et documente des infrastructures réseau complètes : pare-feu, segmentation, Active Directory et téléphonie IP. Chaque projet est validé par un plan de tests et publié avec ses configurations." data-en="I design, secure and document complete network infrastructures: firewalls, segmentation, Active Directory and IP telephony. Every project is validated by a test plan and published with its configurations.">Je conçois, sécurise et documente des infrastructures réseau complètes : pare-feu, segmentation, Active Directory et téléphonie IP. Chaque projet est validé par un plan de tests et publié avec ses configurations.</p>
+
+<p class="status" data-fr="Disponible pour un stage" data-en="Available for an internship">Disponible pour un stage</p>
 
 <div class="buttons">
+<a class="btn btn-primary" href="#projects" data-fr="Voir mes projets" data-en="View my projects">Voir mes projets</a>
+<a class="btn btn-secondary" href="https://github.com/koffisadrac" target="_blank" rel="noopener" data-fr="Mon GitHub" data-en="My GitHub">Mon GitHub</a>
+</div>
 
-<a class="btn btn-primary"
-href="#projects"
-data-fr="Voir mes projets"
-data-en="View my projects">
-Voir mes projets
-</a>
-
-<a class="btn btn-secondary"
-href="https://github.com/koffisadrac"
-target="_blank"
-data-fr="Mon GitHub"
-data-en="My GitHub">
-Mon GitHub
-</a>
-
+<div class="stats">
+<div class="stat"><b>3</b><span data-fr="projets complets documentés" data-en="complete documented projects">projets complets documentés</span></div>
+<div class="stat"><b>57</b><span data-fr="tests validés par capture" data-en="tests validated with screenshots">tests validés par capture</span></div>
+<div class="stat"><b>0 %</b><span data-fr="de perte audio mesurée (VoIP)" data-en="measured audio loss (VoIP)">de perte audio mesurée (VoIP)</span></div>
+<div class="stat"><b>50</b><span data-fr="incidents documentés et résolus" data-en="incidents documented and solved">incidents documentés et résolus</span></div>
 </div>
 
 </header>
@@ -344,81 +205,163 @@ Mon GitHub
 
 <section id="about">
 
-<h2 class="section-title">
-<span>01.</span>
-<span data-fr="À propos" data-en="About">À propos</span>
-</h2>
+<h2 class="section-title"><span>01.</span><span data-fr="À propos" data-en="About">À propos</span></h2>
 
-<p class="about"
-data-fr="Je suis étudiant finissant en Sécurité Informatique et Réseaux à Montréal. Je m'intéresse particulièrement à la sécurité des infrastructures, l'administration Windows et Linux, les réseaux informatiques, les pare-feu et la virtualisation. Mon objectif est de développer une solide expérience pratique et de documenter mes projets techniques afin de démontrer mes compétences dans un environnement professionnel."
-data-en="I am a graduating Cybersecurity and Networking student in Montreal. I am particularly interested in infrastructure security, Windows and Linux administration, computer networking, firewalls and virtualization. My goal is to build strong hands-on experience and document my technical projects to demonstrate my skills in a professional environment.">
-Je suis étudiant finissant en Sécurité Informatique et Réseaux à Montréal.
-Je m'intéresse particulièrement à la sécurité des infrastructures,
-l'administration Windows et Linux, les réseaux informatiques,
-les pare-feu et la virtualisation. Mon objectif est de développer
-une solide expérience pratique et de documenter mes projets techniques.
-</p>
+<div class="about-grid">
 
+<div class="about-text">
+<p data-fr="Je termine une AEC en Sécurité informatique et réseaux au Collège Ellis, à Montréal. Avant l'informatique, j'ai obtenu une licence en criminologie en Côte d'Ivoire : j'y ai appris la rigueur, l'analyse et le respect de la confidentialité, des qualités que j'applique aujourd'hui à la sécurité des systèmes." data-en="I am completing a college diploma (AEC) in Cybersecurity and Networking at Collège Ellis in Montreal. Before IT, I earned a bachelor's degree in criminology in Côte d'Ivoire, where I learned rigour, analysis and respect for confidentiality — qualities I now apply to securing systems.">Je termine une AEC en Sécurité informatique et réseaux au Collège Ellis, à Montréal. Avant l'informatique, j'ai obtenu une licence en criminologie en Côte d'Ivoire : j'y ai appris la rigueur, l'analyse et le respect de la confidentialité, des qualités que j'applique aujourd'hui à la sécurité des systèmes.</p>
+<p data-fr="Ma méthode de travail : construire en laboratoire, tester chaque étape, comparer le résultat obtenu au résultat attendu, et documenter les problèmes avec leur cause et leur solution. Je cherche un stage où mettre cette méthode au service d'une équipe d'infrastructure." data-en="My approach: build in a lab, test every step, compare the actual result with the expected one, and document each problem with its cause and solution. I am looking for an internship where I can bring this approach to an infrastructure team.">Ma méthode de travail : construire en laboratoire, tester chaque étape, comparer le résultat obtenu au résultat attendu, et documenter les problèmes avec leur cause et leur solution. Je cherche un stage où mettre cette méthode au service d'une équipe d'infrastructure.</p>
+</div>
+
+<ul class="qualities">
+<li><b data-fr="Méthodique" data-en="Methodical">Méthodique</b><span data-fr="Plans de tests, résultats attendus et obtenus" data-en="Test plans, expected vs. actual results">Plans de tests, résultats attendus et obtenus</span></li>
+<li><b data-fr="Soucieux de la sécurité" data-en="Security-minded">Soucieux de la sécurité</b><span data-fr="Moindre privilège, chiffrement, défense en profondeur" data-en="Least privilege, encryption, defence in depth">Moindre privilège, chiffrement, défense en profondeur</span></li>
+<li><b data-fr="Clair à l'écrit" data-en="Clear writer">Clair à l'écrit</b><span data-fr="Rapports techniques et dépôts documentés" data-en="Technical reports and documented repositories">Rapports techniques et dépôts documentés</span></li>
+</ul>
+
+</div>
 </section>
 
 
 <section id="skills">
 
-<h2 class="section-title">
-<span>02.</span>
-<span data-fr="Compétences techniques" data-en="Technical Skills">
-Compétences techniques
-</span>
-</h2>
+<h2 class="section-title"><span>02.</span><span data-fr="Compétences techniques" data-en="Technical skills">Compétences techniques</span></h2>
+<p class="section-lead" data-fr="Toutes mises en pratique dans les projets ci-dessous." data-en="All applied in the projects below.">Toutes mises en pratique dans les projets ci-dessous.</p>
 
 <div class="grid">
 
 <div class="card">
 <h3 data-fr="Réseaux" data-en="Networking">Réseaux</h3>
 <ul>
-<li>Cisco</li>
-<li>VLAN & Trunking</li>
-<li data-fr="Routage" data-en="Routing">Routage</li>
-<li>DHCP / DNS</li>
-<li>NAT / PAT</li>
-<li>ACL</li>
-<li>TCP/IP</li>
+<li>Cisco IOS, Packet Tracer</li>
+<li data-fr="VLAN, trunk 802.1Q" data-en="VLANs, 802.1Q trunking">VLAN, trunk 802.1Q</li>
+<li data-fr="Routage inter-VLAN, statique" data-en="Inter-VLAN and static routing">Routage inter-VLAN, statique</li>
+<li>DHCP, DNS, NAT/PAT</li>
+<li>ACL, TCP/IP</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 data-fr="Téléphonie IP" data-en="IP telephony">Téléphonie IP</h3>
+<ul>
+<li>Cisco CME (SCCP)</li>
+<li>Asterisk (PJSIP)</li>
+<li>SIP, RTP, G.711</li>
+<li data-fr="VLAN voix, PoE, option 150" data-en="Voice VLAN, PoE, option 150">VLAN voix, PoE, option 150</li>
+<li>QoS : DSCP, LLQ</li>
 </ul>
 </div>
 
 <div class="card">
 <h3 data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</h3>
 <ul>
-<li>OPNsense</li>
-<li>pfSense</li>
-<li>Nmap</li>
-<li>UFW / iptables</li>
-<li data-fr="Pare-feu Windows" data-en="Windows Firewall">Pare-feu Windows</li>
-<li data-fr="Sécurité réseau" data-en="Network Security">Sécurité réseau</li>
+<li>OPNsense, pfSense</li>
+<li>VPN IPsec, WireGuard</li>
+<li>TLS, SRTP</li>
+<li>UFW, iptables, fail2ban</li>
+<li>Nmap, Wireshark, tcpdump</li>
 </ul>
 </div>
 
 <div class="card">
 <h3 data-fr="Systèmes" data-en="Systems">Systèmes</h3>
 <ul>
-<li>Windows 11</li>
-<li>Windows Server</li>
-<li>Active Directory</li>
-<li>Linux / Ubuntu</li>
-<li>Samba AD</li>
+<li>Windows 10/11, Windows Server</li>
+<li>Active Directory, Samba AD</li>
+<li data-fr="Modèle AGDLP, ACL NTFS" data-en="AGDLP model, NTFS ACLs">Modèle AGDLP, ACL NTFS</li>
+<li>Ubuntu Server, BIND9, Kea</li>
+<li data-fr="Scripts Bash" data-en="Bash scripting">Scripts Bash</li>
 </ul>
 </div>
 
 <div class="card">
-<h3 data-fr="Virtualisation" data-en="☁️ Virtualization">☁️ Virtualisation</h3>
+<h3 data-fr="Virtualisation" data-en="Virtualization">Virtualisation</h3>
 <ul>
 <li>VMware Workstation</li>
 <li>VMware ESXi</li>
-<li>KVM</li>
 <li>Hyper-V</li>
+<li>KVM</li>
 </ul>
 </div>
 
+</div>
+</section>
+
+
+<section id="projects">
+
+<h2 class="section-title"><span>03.</span><span data-fr="Projets techniques" data-en="Technical projects">Projets techniques</span></h2>
+<p class="section-lead" data-fr="Chaque projet est publié sur GitHub avec son rapport, ses configurations (sans secrets) et son plan de tests." data-en="Each project is published on GitHub with its report, configurations (no secrets) and test plan.">Chaque projet est publié sur GitHub avec son rapport, ses configurations (sans secrets) et son plan de tests.</p>
+
+<!-- Projet 1 : VoIP -->
+<article class="project">
+<div class="project-media">
+<img src="https://raw.githubusercontent.com/koffisadrac/voip-multisite-securisee/main/docs/architecture.png" alt="Architecture du projet VoIP : deux sites isolés, pare-feu OPNsense et serveur Asterisk" loading="lazy">
+</div>
+<div class="project-body">
+<span class="project-label" data-fr="Téléphonie IP • 2026" data-en="IP telephony • 2026">Téléphonie IP • 2026</span>
+<h3 data-fr="VoIP multisite sécurisée" data-en="Secure multi-site VoIP">VoIP multisite sécurisée</h3>
+<p data-fr="Téléphonie IP pour une entreprise de deux sites (14 postes) : Cisco CME dans Packet Tracer, puis Asterisk derrière un pare-feu OPNsense dans VMware, chiffrée et priorisée de bout en bout." data-en="IP telephony for a two-site company (14 extensions): Cisco CME in Packet Tracer, then Asterisk behind an OPNsense firewall in VMware, encrypted and prioritized end to end.">Téléphonie IP pour une entreprise de deux sites (14 postes) : Cisco CME dans Packet Tracer, puis Asterisk derrière un pare-feu OPNsense dans VMware, chiffrée et priorisée de bout en bout.</p>
+<div class="chips">
+<span class="chip">Cisco CME</span><span class="chip">Asterisk</span><span class="chip">OPNsense</span><span class="chip">QoS / DSCP</span><span class="chip">IPsec</span><span class="chip">TLS + SRTP</span><span class="chip">Wireshark</span>
+</div>
+<ul class="results">
+<li data-fr="0 % de perte et gigue inférieure à 0,05 ms mesurées dans Wireshark" data-en="0% loss and jitter under 0.05 ms measured in Wireshark">0 % de perte et gigue inférieure à 0,05 ms mesurées dans Wireshark</li>
+<li data-fr="Appel en clair rejouable, appel chiffré impossible à écouter" data-en="Clear call replayable, encrypted call impossible to listen to">Appel en clair rejouable, appel chiffré impossible à écouter</li>
+<li data-fr="43 tests réussis, 22 problèmes documentés" data-en="43 passed tests, 22 documented issues">43 tests réussis, 22 problèmes documentés</li>
+</ul>
+<div class="links">
+<a href="https://github.com/koffisadrac/voip-multisite-securisee" target="_blank" rel="noopener" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+<a href="https://github.com/koffisadrac/voip-multisite-securisee/blob/main/docs/Rapport_VoIP_Kanga.pdf" target="_blank" rel="noopener" data-fr="Rapport (PDF)" data-en="Report (PDF)">Rapport (PDF)</a>
+</div>
+</div>
+</article>
+
+<!-- Projet 2 : NovaTech -->
+<article class="project">
+<div class="project-media">
+<img src="https://raw.githubusercontent.com/koffisadrac/novatech-infrastructure/main/docs/architecture.png" alt="Architecture de l'infrastructure NovaTech : VLAN segmentés autour d'OPNsense" loading="lazy">
+</div>
+<div class="project-body">
+<span class="project-label" data-fr="Infrastructure d'entreprise • 2026" data-en="Enterprise infrastructure • 2026">Infrastructure d'entreprise • 2026</span>
+<h3 data-fr="NovaTech — infrastructure sécurisée" data-en="NovaTech — secure infrastructure">NovaTech — infrastructure sécurisée</h3>
+<p data-fr="Infrastructure complète pour une PME de 24 employés et 6 consultants : identités centralisées, réseau segmenté par niveau de confiance, partages au moindre privilège et accès distant sécurisé." data-en="Complete infrastructure for an SMB with 24 employees and 6 consultants: centralized identities, trust-based network segmentation, least-privilege shares and secure remote access.">Infrastructure complète pour une PME de 24 employés et 6 consultants : identités centralisées, réseau segmenté par niveau de confiance, partages au moindre privilège et accès distant sécurisé.</p>
+<div class="chips">
+<span class="chip">OPNsense</span><span class="chip">Samba AD</span><span class="chip">BIND9</span><span class="chip">Kea DHCP</span><span class="chip">AGDLP</span><span class="chip">WireGuard</span>
+</div>
+<ul class="results">
+<li data-fr="5 VLAN isolés, blocage par défaut entre les zones" data-en="5 isolated VLANs, default deny between zones">5 VLAN isolés, blocage par défaut entre les zones</li>
+<li data-fr="Sauvegarde restaurée avec conservation des ACL" data-en="Backup restored with ACLs preserved">Sauvegarde restaurée avec conservation des ACL</li>
+<li data-fr="14 tests positifs et négatifs réussis, 28 incidents documentés" data-en="14 positive and negative tests passed, 28 incidents documented">14 tests positifs et négatifs réussis, 28 incidents documentés</li>
+</ul>
+<div class="links">
+<a href="https://github.com/koffisadrac/novatech-infrastructure" target="_blank" rel="noopener" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+<a href="https://github.com/koffisadrac/novatech-infrastructure/blob/main/docs/Rapport_NovaTech.pdf" target="_blank" rel="noopener" data-fr="Rapport (PDF)" data-en="Report (PDF)">Rapport (PDF)</a>
+</div>
+</div>
+</article>
+
+<!-- Projet 3 : OPNsense -->
+<article class="project">
+<div class="project-body" style="grid-column: 1 / -1;">
+<span class="project-label" data-fr="Pare-feu et segmentation • 2026" data-en="Firewall & segmentation • 2026">Pare-feu et segmentation • 2026</span>
+<h3>OPNsense Firewall & VLAN Lab</h3>
+<p data-fr="Volet pare-feu de NovaTech : OPNsense comme routeur central, règles évaluées de haut en bas, relais DHCP vers le contrôleur de domaine, NAT sortant et VPN WireGuard limité au strict nécessaire." data-en="Firewall part of NovaTech: OPNsense as the central router, top-down rule evaluation, DHCP relay to the domain controller, outbound NAT and a WireGuard VPN limited to what is needed.">Volet pare-feu de NovaTech : OPNsense comme routeur central, règles évaluées de haut en bas, relais DHCP vers le contrôleur de domaine, NAT sortant et VPN WireGuard limité au strict nécessaire.</p>
+<div class="chips">
+<span class="chip">OPNsense</span><span class="chip">VLAN</span><span class="chip">NAT</span><span class="chip">DHCP Relay</span><span class="chip">WireGuard</span>
+</div>
+<div class="links">
+<a href="https://github.com/koffisadrac/opnsense-firewall-vlan-lab" target="_blank" rel="noopener" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+</div>
+</div>
+</article>
+
+<h3 class="subhead" data-fr="Laboratoires de cours" data-en="Course labs">Laboratoires de cours</h3>
+<div class="labs">
+<div class="lab"><h4>Windows Server & Active Directory</h4><p data-fr="AD DS, DNS, DHCP, utilisateurs, groupes et stratégies de groupe." data-en="AD DS, DNS, DHCP, users, groups and Group Policy.">AD DS, DNS, DHCP, utilisateurs, groupes et stratégies de groupe.</p></div>
+<div class="lab"><h4 data-fr="Infrastructures virtuelles" data-en="Virtual infrastructure">Infrastructures virtuelles</h4><p data-fr="VMware ESXi, Hyper-V et KVM : création et gestion de machines virtuelles." data-en="VMware ESXi, Hyper-V and KVM: building and managing virtual machines.">VMware ESXi, Hyper-V et KVM : création et gestion de machines virtuelles.</p></div>
+<div class="lab"><h4 data-fr="Analyse de sécurité réseau" data-en="Network security analysis">Analyse de sécurité réseau</h4><p data-fr="Balayage avec Nmap, analyse de trafic avec Wireshark et outils de diagnostic." data-en="Scanning with Nmap, traffic analysis with Wireshark and diagnostic tools.">Balayage avec Nmap, analyse de trafic avec Wireshark et outils de diagnostic.</p></div>
 </div>
 
 </section>
@@ -426,210 +369,68 @@ Compétences techniques
 
 <section id="education">
 
-<h2 class="section-title">
-<span>03.</span>
-<span data-fr="Formation" data-en="Education">Formation</span>
-</h2>
+<h2 class="section-title"><span>04.</span><span data-fr="Formation" data-en="Education">Formation</span></h2>
 
-<div class="education-item">
+<div class="timeline">
 
-<h3
-data-fr="Sécurité Informatique et Réseaux"
-data-en="Cybersecurity and Networking">
-Sécurité Informatique et Réseaux
-</h3>
-
-<p
-data-fr="Formation technique en cybersécurité, réseaux, systèmes et infrastructures informatiques."
-data-en="Technical training in cybersecurity, networking, systems and IT infrastructure.">
-Formation technique en cybersécurité, réseaux, systèmes et infrastructures informatiques.
-</p>
-
+<div class="edu">
+<span class="when" data-fr="En cours — fin prévue en mai 2027" data-en="In progress — expected completion May 2027">En cours — fin prévue en mai 2027</span>
+<h3 data-fr="AEC Sécurité informatique et réseaux" data-en="College diploma (AEC) — Cybersecurity and Networking">AEC Sécurité informatique et réseaux</h3>
+<div class="where">Collège Ellis — Montréal</div>
+<p data-fr="Cours réussis :" data-en="Completed courses:">Cours réussis :</p>
+<div class="courses">
+<div class="course-group"><h4 data-fr="Réseaux" data-en="Networking">Réseaux</h4><ul><li data-fr="Théorie des réseaux" data-en="Network Theory">Théorie des réseaux</li><li data-fr="Routage et communication" data-en="Routing and Communication">Routage et communication</li><li data-fr="Fonctions de commutation avancées" data-en="Advanced Switching">Fonctions de commutation avancées</li></ul></div>
+<div class="course-group"><h4 data-fr="Sécurité" data-en="Security">Sécurité</h4><ul><li data-fr="Sécurité informatique avancée" data-en="Advanced IT Security">Sécurité informatique avancée</li><li data-fr="Sécurité des communications" data-en="Communications Security">Sécurité des communications</li><li data-fr="Sécurité des accès au réseau informatique" data-en="Network Access Security">Sécurité des accès au réseau informatique</li></ul></div>
+<div class="course-group"><h4 data-fr="Systèmes" data-en="Systems">Systèmes</h4><ul><li data-fr="Système d'exploitation I et II" data-en="Operating Systems I and II">Système d'exploitation I et II</li><li data-fr="Système serveur I et II" data-en="Server Systems I and II">Système serveur I et II</li><li data-fr="Environnement de production I" data-en="Production Environment I">Environnement de production I</li></ul></div>
+<div class="course-group"><h4 data-fr="Téléphonie et projets" data-en="Telephony and projects">Téléphonie et projets</h4><ul><li data-fr="Téléphonie IP" data-en="IP Telephony">Téléphonie IP</li><li data-fr="Projet d'intégration I" data-en="Integration Project I">Projet d'intégration I</li><li data-fr="Projet d'intégration II" data-en="Integration Project II">Projet d'intégration II</li></ul></div>
+<div class="course-group"><h4 data-fr="Communication" data-en="Communication">Communication</h4><ul><li data-fr="Logiciels de bureautique" data-en="Office Software">Logiciels de bureautique</li><li data-fr="Français en informatique" data-en="French for IT">Français en informatique</li><li data-fr="Anglais en informatique" data-en="English for IT">Anglais en informatique</li></ul></div>
+<div class="course-group now"><h4 data-fr="En cours (4ᵉ session)" data-en="In progress (4th semester)">En cours (4ᵉ session)</h4><ul><li data-fr="Infrastructures virtuelles" data-en="Virtual Infrastructure">Infrastructures virtuelles</li><li data-fr="Gestion des risques et incidents" data-en="Risk and Incident Management">Gestion des risques et incidents</li><li data-fr="Environnement de production II" data-en="Production Environment II">Environnement de production II</li><li data-fr="Soutien aux clients" data-en="Client Support">Soutien aux clients</li><li data-fr="Milieu de travail, recherche et communication" data-en="IT Workplace, Research and Communication">Milieu de travail, recherche et communication</li></ul></div>
+</div>
 </div>
 
-
-<div class="education-item">
-
-<h3
-data-fr="4ᵉ session — En cours"
-data-en="4th Semester — In Progress">
-4ᵉ session — En cours
-</h3>
-
-<p
-data-fr="Infrastructures virtuelles • Gestion des risques et incidents • Environnement de production II • Soutien aux clients • Milieu de travail en informatique, recherche et communication."
-data-en="Virtual Infrastructure • Risk and Incident Management • Production Environment II • Client Support • IT Workplace, Research and Communication.">
-Infrastructures virtuelles • Gestion des risques et incidents •
-Environnement de production II • Soutien aux clients •
-Milieu de travail en informatique, recherche et communication.
-</p>
-
-</div>
-
-</section>
-
-
-<section id="projects">
-
-<h2 class="section-title">
-<span>04.</span>
-<span data-fr="Projets techniques" data-en="Technical Projects">
-Projets techniques
-</span>
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>VoIP multisite sécurisée</h3>
-
-<p
-data-fr="Téléphonie IP pour deux sites avec Cisco CME et Asterisk derrière OPNsense : VLAN voix, QoS (DSCP 46), VPN IPsec, SIP over TLS et SRTP, fail2ban et analyse des appels dans Wireshark (0 % de perte, 43 tests)."
-data-en="IP telephony for two sites with Cisco CME and Asterisk behind OPNsense: voice VLANs, QoS (DSCP 46), IPsec VPN, SIP over TLS and SRTP, fail2ban and call analysis in Wireshark (0% packet loss, 43 tests).">
-Téléphonie IP pour deux sites avec Cisco CME et Asterisk derrière OPNsense :
-VLAN voix, QoS (DSCP 46), VPN IPsec, SIP over TLS et SRTP, fail2ban et analyse
-des appels dans Wireshark (0 % de perte, 43 tests).
-</p>
-
-<a class="project-link"
-href="https://github.com/koffisadrac/voip-multisite-securisee"
-target="_blank"
-data-fr="Voir le projet →"
-data-en="View project →">
-Voir le projet →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>OPNsense Firewall & VLAN Lab</h3>
-
-<p
-data-fr="Laboratoire de sécurité réseau avec segmentation VLAN, règles de pare-feu, NAT et tests de sécurité."
-data-en="Network security lab featuring VLAN segmentation, firewall rules, NAT and security testing.">
-Laboratoire de sécurité réseau avec segmentation VLAN,
-règles de pare-feu, NAT et tests de sécurité.
-</p>
-
-<a class="project-link"
-href="https://github.com/koffisadrac/opnsense-firewall-vlan-lab"
-target="_blank"
-data-fr="Voir le projet →"
-data-en="View project →">
-Voir le projet →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>Active Directory Lab</h3>
-
-<p
-data-fr="Déploiement d'un environnement Windows Server avec Active Directory, DNS, DHCP, utilisateurs, groupes et stratégies de sécurité."
-data-en="Deployment of a Windows Server environment with Active Directory, DNS, DHCP, users, groups and security policies.">
-Déploiement d'un environnement Windows Server avec Active Directory,
-DNS, DHCP, utilisateurs, groupes et stratégies de sécurité.
-</p>
-
-<p data-fr="Documentation à venir"
-data-en="Documentation coming soon">
-Documentation à venir
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Virtualization Lab</h3>
-
-<p
-data-fr="Laboratoires pratiques sur les infrastructures virtuelles avec VMware, ESXi et KVM."
-data-en="Hands-on virtual infrastructure labs using VMware, ESXi and KVM.">
-Laboratoires pratiques sur les infrastructures virtuelles avec VMware,
-ESXi et KVM.
-</p>
-
-<p data-fr="Projet en développement"
-data-en="Project in development">
-Projet en développement
-</p>
-
+<div class="edu">
+<span class="when" data-fr="Diplômé" data-en="Graduated">Diplômé</span>
+<h3 data-fr="Licence en criminologie" data-en="Bachelor's degree in criminology">Licence en criminologie</h3>
+<div class="where">Université Félix-Houphouët-Boigny — Côte d'Ivoire</div>
+<p data-fr="Rigueur, analyse et respect de la confidentialité." data-en="Rigour, analysis and respect for confidentiality.">Rigueur, analyse et respect de la confidentialité.</p>
 </div>
 
 </div>
-
 </section>
 
 
 <section id="contact">
 
-<h2 class="section-title">
-<span>05.</span> Contact
-</h2>
+<h2 class="section-title"><span>05.</span>Contact</h2>
 
 <div class="contact-box">
-
-<p
-data-fr="Je suis intéressé par les opportunités de stage et les postes juniors en cybersécurité, réseaux, administration systèmes et support TI."
-data-en="I am interested in internship opportunities and junior positions in cybersecurity, networking, system administration and IT support.">
-Je suis intéressé par les opportunités de stage et les postes juniors
-en cybersécurité, réseaux, administration systèmes et support TI.
-</p>
-
-<a class="btn btn-primary"
-href="https://github.com/koffisadrac"
-target="_blank"
-data-fr="Voir mon GitHub"
-data-en="View my GitHub">
-Voir mon GitHub
-</a>
-
+<p data-fr="Je cherche un stage ou un premier poste en infrastructure, réseaux, téléphonie IP ou soutien TI. Écrivez-moi : je réponds rapidement." data-en="I am looking for an internship or an entry-level role in infrastructure, networking, IP telephony or IT support. Write to me: I reply quickly.">Je cherche un stage ou un premier poste en infrastructure, réseaux, téléphonie IP ou soutien TI. Écrivez-moi : je réponds rapidement.</p>
+<div class="buttons">
+<a class="btn btn-primary" href="mailto:sadrackanga@gmail.com" data-fr="M'écrire" data-en="Email me">M'écrire</a>
+<a class="btn btn-secondary" href="https://github.com/koffisadrac" target="_blank" rel="noopener" data-fr="Voir mon GitHub" data-en="View my GitHub">Voir mon GitHub</a>
+</div>
 </div>
 
 </section>
 
 
-<footer
-data-fr="© 2026 Koffi Sadrac Kanga — Portfolio Cybersécurité & Réseaux"
-data-en="© 2026 Koffi Sadrac Kanga — Cybersecurity & Networking Portfolio">
-© 2026 Koffi Sadrac Kanga— Portfolio Cybersécurité & Réseaux
-</footer>
+<footer data-fr="© 2026 Koffi Sadrac Kanga — Portfolio Cybersécurité & Réseaux" data-en="© 2026 Koffi Sadrac Kanga — Cybersecurity & Networking Portfolio">© 2026 Koffi Sadrac Kanga — Portfolio Cybersécurité & Réseaux</footer>
 
 
 <script>
-
 function changeLanguage(language) {
-
-    document.querySelectorAll("[data-fr]").forEach(element => {
+    document.querySelectorAll("[data-fr]").forEach(function (element) {
         element.textContent = element.getAttribute("data-" + language);
     });
-
     document.documentElement.lang = language;
-
-    document.getElementById("frBtn").classList.toggle(
-        "active",
-        language === "fr"
-    );
-
-    document.getElementById("enBtn").classList.toggle(
-        "active",
-        language === "en"
-    );
-
-    localStorage.setItem("portfolioLanguage", language);
+    document.getElementById("frBtn").classList.toggle("active", language === "fr");
+    document.getElementById("enBtn").classList.toggle("active", language === "en");
+    try { localStorage.setItem("portfolioLanguage", language); } catch (e) {}
 }
 
-const savedLanguage =
-    localStorage.getItem("portfolioLanguage") || "fr";
-
+var savedLanguage = "fr";
+try { savedLanguage = localStorage.getItem("portfolioLanguage") || "fr"; } catch (e) {}
 changeLanguage(savedLanguage);
-
 </script>
 
 </body>
